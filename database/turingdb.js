@@ -1,15 +1,11 @@
-
-const mysql=require('mysql')
-var knex=mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'Subhash@1234',
-    database:'turing'
-})
-knex.connect((err)=>{
-    if(err){
-        console.log(err);
-    }else{
-        console.log("database connected");
+var knex = require('knex')({
+    client: "mysql",
+    connection: {
+        host :process.env.db_host,
+        user :process.env.db_user,
+        password : process.env.db_pass,
+        database : process.env.db_name
     }
 })
+
+module.exports=knex

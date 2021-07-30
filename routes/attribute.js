@@ -1,14 +1,7 @@
 const express=require('express')
 const router=express.Router()
-var knex = require('knex')({
-    client: "mysql",
-    connection: {
-        host : 'localhost',
-        user : 'root',
-        password : 'Subhash@1234',
-        database : 'turing'
-    }
-})
+const knex=require('../database/turingdb')
+
 router.get('/attributes',(req,res)=>{
     knex
     .select('*')
@@ -19,7 +12,6 @@ router.get('/attributes',(req,res)=>{
         console.log(err);
     })
 })
-
 router.get('/attributes/:id',(req,res)=>{
     knex
     .select('*')
