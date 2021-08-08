@@ -40,7 +40,6 @@ router.get("/attributes/values/:attribute_id", (req, res) =>{
     })
 })
 
-
 router.get("/attributes/inProduct/:product_id", (req, res) =>{
     let product_id = req.params.product_id;
     knex
